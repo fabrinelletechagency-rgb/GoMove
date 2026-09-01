@@ -140,7 +140,7 @@ export default function Booking({ prefill }) {
               type="text"
               value={form.pickup}
               onChange={update("pickup")}
-              placeholder="Ex : Carrefour Zongo"
+              placeholder="Ex : Carrefour Nombakélé"
               className="w-full rounded-xl border border-brand-100 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400"
             />
           </div>
@@ -153,7 +153,7 @@ export default function Booking({ prefill }) {
               type="text"
               value={form.destination}
               onChange={update("destination")}
-              placeholder="Ex : Aéroport de Cotonou"
+              placeholder="Ex : Stade Omnisports"
               className="w-full rounded-xl border border-brand-100 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400"
             />
           </div>
@@ -191,7 +191,7 @@ export default function Booking({ prefill }) {
               type="tel"
               value={form.phone}
               onChange={update("phone")}
-              placeholder="+229 00 00 00 00"
+              placeholder="+241 00 00 00 00"
               className="w-full rounded-xl border border-brand-100 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400"
             />
           </div>

@@ -4,7 +4,7 @@ const SOCIALS = [
   { label: "Facebook", href: "https://facebook.com/gomove", icon: "f" },
   { label: "Instagram", href: "https://instagram.com/gomove", icon: "◎" },
   { label: "X / Twitter", href: "https://x.com/gomove", icon: "𝕏" },
-  { label: "WhatsApp", href: "https://wa.me/22900000000", icon: "☎" },
+  { label: "WhatsApp", href: "https://wa.me/24100000000", icon: "☎" },
 ];
 
 export default function Footer() {
@@ -32,8 +32,8 @@ export default function Footer() {
         <div>
           <h4 className="font-bold text-white mb-4">Contact</h4>
           <ul className="space-y-2 text-sm text-brand-200/80">
-            <li>📍 Cotonou, Bénin</li>
-            <li>📞 +229 00 00 00 00</li>
+            <li>📍 Libreville, Gabon</li>
+            <li>📞 +241 00 00 00 00</li>
             <li>✉️ contact@gomove.com</li>
             <li>🕐 Disponible 24h/24, 7j/7</li>
           </ul>

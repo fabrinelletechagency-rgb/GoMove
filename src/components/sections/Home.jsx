@@ -63,10 +63,10 @@ export default function Home({ onOrder }) {
               Née dans la rue, pensée pour la ville
             </h2>
             <p className="text-slate-600 mb-4">
-              GoMove est une entreprise de transport qui met en relation passagers et
-              chauffeurs partenaires pour des déplacements urbains rapides, sûrs et
-              abordables. Notre mission&nbsp;: rendre la ville accessible à tous, à
-              tout moment, sans mauvaise surprise sur le prix.
+              GoMove est une entreprise de transport urbain en voiture qui met en
+              relation passagers et chauffeurs partenaires pour des courses rapides,
+              sûres et abordables en ville. Notre mission&nbsp;: rendre la ville
+              accessible à tous, à tout moment, sans mauvaise surprise sur le prix.
             </p>
             <p className="text-slate-600 mb-6">
               Présents dans plusieurs villes, nous accompagnons chaque jour des

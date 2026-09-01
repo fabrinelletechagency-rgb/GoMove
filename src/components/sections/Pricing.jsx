@@ -1,7 +1,7 @@
 const PLANS = [
   {
     name: "GoMove Éco",
-    price: "450",
+    price: "2 000",
     unit: "F CFA / course dès",
     desc: "Le trajet malin pour vos déplacements de tous les jours.",
     features: [
@@ -14,7 +14,7 @@ const PLANS = [
   },
   {
     name: "GoMove Confort",
-    price: "900",
+    price: "5 000",
     unit: "F CFA / course dès",
     desc: "Notre offre la plus choisie : confort, ponctualité, tranquillité.",
     features: [
@@ -28,7 +28,7 @@ const PLANS = [
   },
   {
     name: "GoMove VIP",
-    price: "1 800",
+    price: "10 000",
     unit: "F CFA / course dès",
     desc: "Un service haut de gamme pour vos rendez-vous d'affaires ou occasions spéciales.",
     features: [

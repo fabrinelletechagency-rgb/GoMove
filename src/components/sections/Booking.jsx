@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { isSupabaseConfigured, supabase } from "../../lib/supabaseClient.js";
 
 const VEHICLES = [
-  { id: "eco", label: "GoMove Éco", price: "dès 450 F CFA" },
-  { id: "confort", label: "GoMove Confort", price: "dès 900 F CFA" },
-  { id: "vip", label: "GoMove VIP", price: "dès 1 800 F CFA" },
+  { id: "eco", label: "GoMove Éco", price: "dès 2 000 F CFA" },
+  { id: "confort", label: "GoMove Confort", price: "dès 5 000 F CFA" },
+  { id: "vip", label: "GoMove VIP", price: "dès 10 000 F CFA" },
 ];
 
 const initialForm = {
@@ -17,28 +18,56 @@ const initialForm = {
 };
 
 export default function Booking({ prefill }) {
-  const [form, setForm] = useState(initialForm);
+  const [form, setForm] = useState(() => ({
+    ...initialForm,
+    pickup: prefill?.pickup || initialForm.pickup,
+    destination: prefill?.destination || initialForm.destination,
+  }));
   const [submitted, setSubmitted] = useState(null);
-
-  useEffect(() => {
-    if (!prefill) return;
-    setForm((f) => ({
-      ...f,
-      pickup: prefill.pickup || f.pickup,
-      destination: prefill.destination || f.destination,
-    }));
-  }, [prefill]);
+  const [status, setStatus] = useState("idle"); // idle | saving | error
+  const [errorMessage, setErrorMessage] = useState("");
 
   const update = (key) => (e) => setForm((f) => ({ ...f, [key]: e.target.value }));
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!isSupabaseConfigured) {
+      setStatus("error");
+      setErrorMessage(
+        "La réservation en ligne n'est pas encore activée (base de données non configurée). Merci de nous appeler directement."
+      );
+      return;
+    }
+
+    setStatus("saving");
+    setErrorMessage("");
+
+    const { error } = await supabase.from("bookings").insert({
+      pickup: form.pickup,
+      destination: form.destination,
+      scheduled_date: form.date || null,
+      scheduled_time: form.time || null,
+      phone: form.phone,
+      vehicle: form.vehicle,
+      notes: form.notes || null,
+    });
+
+    if (error) {
+      setStatus("error");
+      setErrorMessage("La réservation n'a pas pu être enregistrée. Réessayez dans un instant.");
+      return;
+    }
+
+    setStatus("idle");
     setSubmitted({ ...form });
   };
 
   const handleReset = () => {
     setForm(initialForm);
     setSubmitted(null);
+    setStatus("idle");
+    setErrorMessage("");
   };
 
   if (submitted) {
@@ -210,11 +239,18 @@ export default function Booking({ prefill }) {
           />
         </div>
 
+        {status === "error" && (
+          <p className="text-sm text-red-600 bg-red-50 border border-red-100 rounded-xl px-4 py-3">
+            {errorMessage}
+          </p>
+        )}
+
         <button
           type="submit"
-          className="w-full bg-brand-600 hover:bg-brand-700 transition-colors text-white font-bold py-3.5 rounded-xl shadow-soft"
+          disabled={status === "saving"}
+          className="w-full bg-brand-600 hover:bg-brand-700 transition-colors text-white font-bold py-3.5 rounded-xl shadow-soft disabled:opacity-60 disabled:cursor-not-allowed"
         >
-          Confirmer ma course
+          {status === "saving" ? "Envoi en cours..." : "Confirmer ma course"}
         </button>
       </form>
     </div>

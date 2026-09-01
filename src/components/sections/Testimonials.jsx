@@ -9,9 +9,9 @@ const REVIEWS = [
   {
     name: "Karim Bello",
     city: "Lomé",
-    trip: "Trajet aéroport",
+    trip: "Trajet professionnel",
     rating: 5,
-    text: "Prix affiché avant de monter, chauffeur à l'heure pour mon vol. Exactement ce qu'il me fallait pour un déplacement pro.",
+    text: "Prix affiché avant de monter, chauffeur ponctuel pour mes rendez-vous en ville. Exactement ce qu'il me fallait pour mes déplacements pro.",
   },
   {
     name: "Fatou Sow",

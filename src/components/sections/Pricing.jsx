@@ -1,9 +1,9 @@
 const PLANS = [
   {
     name: "GoMove Éco",
-    price: "500",
+    price: "450",
     unit: "F CFA / course dès",
-    desc: "Idéal pour vos trajets du quotidien à petit prix.",
+    desc: "Le trajet malin pour vos déplacements de tous les jours.",
     features: [
       "Véhicule standard climatisé",
       "Jusqu'à 3 passagers",
@@ -14,29 +14,29 @@ const PLANS = [
   },
   {
     name: "GoMove Confort",
-    price: "1 000",
+    price: "900",
     unit: "F CFA / course dès",
-    desc: "Le meilleur rapport confort/prix pour vos déplacements.",
+    desc: "Notre offre la plus choisie : confort, ponctualité, tranquillité.",
     features: [
-      "Véhicule récent et confortable",
+      "Véhicule récent, climatisation renforcée",
       "Jusqu'à 4 passagers",
-      "Chauffeur prioritaire",
+      "Chauffeur prioritaire sous 5 min",
       "Suivi du trajet en temps réel",
-      "Assistance client dédiée",
+      "Assistance client dédiée 24h/24",
     ],
     highlight: true,
   },
   {
-    name: "GoMove Premium",
-    price: "2 000",
+    name: "GoMove VIP",
+    price: "1 800",
     unit: "F CFA / course dès",
-    desc: "Une expérience haut de gamme pour vos occasions spéciales.",
+    desc: "Un service haut de gamme pour vos rendez-vous d'affaires ou occasions spéciales.",
     features: [
-      "Véhicule haut de gamme",
+      "Véhicule haut de gamme, intérieur soigné",
       "Jusqu'à 4 passagers",
       "Chauffeur professionnel dédié",
-      "Eau et wifi à bord",
-      "Réservation à l'avance possible",
+      "Eau offerte et wifi à bord",
+      "Réservation à l'avance et facturation",
     ],
     highlight: false,
   },
@@ -46,12 +46,12 @@ export default function Pricing({ onOrder }) {
   return (
     <div>
       <div className="text-center max-w-2xl mx-auto mb-12">
-        <h2 className="text-3xl sm:text-4xl font-extrabold text-brand-900 mb-3">
-          Nos offres tarifaires
+        <h2 className="font-display text-3xl sm:text-4xl font-bold text-brand-900 mb-3">
+          Une offre pour chaque trajet
         </h2>
         <p className="text-slate-600">
-          Choisissez l'offre GoMove qui correspond à vos besoins. Prix clairs, sans
-          surprise.
+          Le prix s'affiche avant de valider votre course. Pas de compteur, pas de
+          surprise à l'arrivée.
         </p>
       </div>
 
@@ -59,7 +59,7 @@ export default function Pricing({ onOrder }) {
         {PLANS.map((plan) => (
           <div
             key={plan.name}
-            className={`rounded-3xl p-8 flex flex-col border transition-all ${
+            className={`rounded-2xl p-8 flex flex-col border transition-all ${
               plan.highlight
                 ? "bg-brand-600 text-white border-brand-600 shadow-soft scale-[1.02] md:-translate-y-2"
                 : "bg-white text-brand-900 border-brand-100 shadow-sm hover:-translate-y-1 hover:shadow-soft"
@@ -67,15 +67,15 @@ export default function Pricing({ onOrder }) {
           >
             {plan.highlight && (
               <span className="self-start bg-white text-brand-600 text-xs font-bold uppercase tracking-wide px-3 py-1 rounded-full mb-4">
-                Le plus populaire
+                Le plus choisi
               </span>
             )}
-            <h3 className="text-xl font-bold mb-1">{plan.name}</h3>
+            <h3 className="font-display text-xl font-bold mb-1">{plan.name}</h3>
             <p className={`text-sm mb-6 ${plan.highlight ? "text-brand-50/90" : "text-slate-600"}`}>
               {plan.desc}
             </p>
             <div className="mb-6">
-              <span className="text-4xl font-extrabold">{plan.price}</span>
+              <span className="font-display text-4xl font-bold">{plan.price}</span>
               <span className={`text-sm ml-1 ${plan.highlight ? "text-brand-50/90" : "text-slate-500"}`}>
                 {plan.unit}
               </span>
@@ -90,10 +90,10 @@ export default function Pricing({ onOrder }) {
             </ul>
             <button
               onClick={onOrder}
-              className={`font-semibold py-3 rounded-full transition-colors ${
+              className={`font-semibold py-3 rounded-xl transition-colors ${
                 plan.highlight
                   ? "bg-white text-brand-700 hover:bg-brand-50"
-                  : "bg-brand-500 text-white hover:bg-brand-600"
+                  : "bg-brand-600 text-white hover:bg-brand-700"
               }`}
             >
               Choisir cette offre

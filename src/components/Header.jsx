@@ -42,7 +42,7 @@ export default function Header({ activeTab, setActiveTab }) {
 
         <button
           onClick={() => handleSelect("commander")}
-          className="hidden md:inline-block bg-brand-500 hover:bg-brand-600 transition-colors text-white text-sm font-semibold px-5 py-2.5 rounded-full shadow-soft"
+          className="hidden md:inline-block bg-brand-600 hover:bg-brand-700 transition-colors text-white text-sm font-semibold px-5 py-2.5 rounded-xl shadow-soft"
         >
           Commander un taxi
         </button>

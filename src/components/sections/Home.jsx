@@ -32,7 +32,7 @@ export default function Home({ onOrder }) {
     <div className="space-y-20">
       <section>
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-brand-900 mb-3">
+          <h2 className="font-display text-3xl sm:text-4xl font-bold text-brand-900 mb-3">
             Comment fonctionne GoMove&nbsp;?
           </h2>
           <p className="text-slate-600">
@@ -59,14 +59,14 @@ export default function Home({ onOrder }) {
             <span className="text-brand-600 font-semibold text-sm uppercase tracking-wide">
               Qui sommes-nous
             </span>
-            <h2 className="text-3xl font-extrabold text-brand-900 mt-2 mb-4">
-              GoMove, la mobilité urbaine réinventée
+            <h2 className="font-display text-3xl font-bold text-brand-900 mt-2 mb-4">
+              Née dans la rue, pensée pour la ville
             </h2>
             <p className="text-slate-600 mb-4">
               GoMove est une entreprise de transport qui met en relation passagers et
               chauffeurs partenaires pour des déplacements urbains rapides, sûrs et
               abordables. Notre mission&nbsp;: rendre la ville accessible à tous, à
-              tout moment.
+              tout moment, sans mauvaise surprise sur le prix.
             </p>
             <p className="text-slate-600 mb-6">
               Présents dans plusieurs villes, nous accompagnons chaque jour des
@@ -76,7 +76,7 @@ export default function Home({ onOrder }) {
             </p>
             <button
               onClick={onOrder}
-              className="bg-brand-500 hover:bg-brand-600 transition-colors text-white font-semibold px-6 py-3 rounded-full"
+              className="bg-brand-600 hover:bg-brand-700 transition-colors text-white font-semibold px-6 py-3 rounded-xl"
             >
               Rejoindre l'aventure GoMove
             </button>

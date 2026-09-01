@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const VEHICLES = [
-  { id: "eco", label: "GoMove Éco", price: "dès 500 F CFA" },
-  { id: "confort", label: "GoMove Confort", price: "dès 1 000 F CFA" },
-  { id: "premium", label: "GoMove Premium", price: "dès 2 000 F CFA" },
+  { id: "eco", label: "GoMove Éco", price: "dès 450 F CFA" },
+  { id: "confort", label: "GoMove Confort", price: "dès 900 F CFA" },
+  { id: "vip", label: "GoMove VIP", price: "dès 1 800 F CFA" },
 ];
 
 const initialForm = {
@@ -16,9 +16,18 @@ const initialForm = {
   notes: "",
 };
 
-export default function Booking() {
+export default function Booking({ prefill }) {
   const [form, setForm] = useState(initialForm);
   const [submitted, setSubmitted] = useState(null);
+
+  useEffect(() => {
+    if (!prefill) return;
+    setForm((f) => ({
+      ...f,
+      pickup: prefill.pickup || f.pickup,
+      destination: prefill.destination || f.destination,
+    }));
+  }, [prefill]);
 
   const update = (key) => (e) => setForm((f) => ({ ...f, [key]: e.target.value }));
 
@@ -39,7 +48,7 @@ export default function Booking() {
         <div className="w-16 h-16 rounded-full bg-brand-50 text-brand-600 flex items-center justify-center text-3xl mx-auto mb-5">
           ✅
         </div>
-        <h2 className="text-2xl font-extrabold text-brand-900 mb-2">
+        <h2 className="font-display text-2xl font-bold text-brand-900 mb-2">
           Course réservée avec succès !
         </h2>
         <p className="text-slate-600 mb-6">
@@ -54,7 +63,7 @@ export default function Booking() {
         </div>
         <button
           onClick={handleReset}
-          className="bg-brand-500 hover:bg-brand-600 transition-colors text-white font-semibold px-6 py-3 rounded-full"
+          className="bg-brand-600 hover:bg-brand-700 transition-colors text-white font-semibold px-6 py-3 rounded-xl"
         >
           Réserver une autre course
         </button>
@@ -65,7 +74,7 @@ export default function Booking() {
   return (
     <div className="grid md:grid-cols-5 gap-10 items-start">
       <div className="md:col-span-2">
-        <h2 className="text-3xl font-extrabold text-brand-900 mb-3">
+        <h2 className="font-display text-3xl font-bold text-brand-900 mb-3">
           Commander un taxi
         </h2>
         <p className="text-slate-600 mb-6">
@@ -203,7 +212,7 @@ export default function Booking() {
 
         <button
           type="submit"
-          className="w-full bg-brand-600 hover:bg-brand-700 transition-colors text-white font-bold py-3.5 rounded-full shadow-soft"
+          className="w-full bg-brand-600 hover:bg-brand-700 transition-colors text-white font-bold py-3.5 rounded-xl shadow-soft"
         >
           Confirmer ma course
         </button>

@@ -7,12 +7,17 @@ html {
 }
 
 body {
-  font-family: "Poppins", system-ui, sans-serif;
-  background-color: #f6f8ff;
-  color: #0b1a44;
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+  background-color: #f5f6ff;
+  color: #0a0e33;
+}
+
+h1, h2, h3, .font-display {
+  font-family: "Sora", system-ui, sans-serif;
+  text-wrap: balance;
 }
 
 ::selection {
-  background-color: #1d4ed8;
+  background-color: #2734d9;
   color: white;
 }

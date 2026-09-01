@@ -16,9 +16,11 @@ const TABS = [
 
 export default function App() {
   const [activeTab, setActiveTab] = useState("accueil");
+  const [prefill, setPrefill] = useState(null);
 
-  const goToTab = (id) => {
+  const goToTab = (id, data) => {
     setActiveTab(id);
+    if (data) setPrefill(data);
     document.getElementById("tabs-section")?.scrollIntoView({ behavior: "smooth" });
   };
 
@@ -26,7 +28,10 @@ export default function App() {
     <div className="min-h-screen flex flex-col">
       <Header activeTab={activeTab} setActiveTab={setActiveTab} />
 
-      <Hero onOrder={() => goToTab("commander")} onDiscover={() => goToTab("accueil")} />
+      <Hero
+        onOrder={(data) => goToTab("commander", data)}
+        onDiscover={() => goToTab("accueil")}
+      />
 
       <main id="tabs-section" className="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 py-14">
         <div className="flex justify-center mb-12">
@@ -50,7 +55,7 @@ export default function App() {
         {activeTab === "accueil" && <Home onOrder={() => goToTab("commander")} />}
         {activeTab === "tarifs" && <Pricing onOrder={() => goToTab("commander")} />}
         {activeTab === "temoignages" && <Testimonials />}
-        {activeTab === "commander" && <Booking />}
+        {activeTab === "commander" && <Booking prefill={prefill} />}
       </main>
 
       <Footer />
